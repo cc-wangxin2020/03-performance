@@ -1,18 +1,20 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <router-link to="/data-lazy">数据懒加载场景</router-link> <br />
+    <router-link to="/img-lazy">图片懒加载场景</router-link>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import * as xlsx from 'xlsx'
+import * as echats from 'echarts'
 
 export default {
   name: 'HomeView',
-  components: {
-    HelloWorld
+  created() {
+    console.log(xlsx)
+    console.log(echats)
   }
 }
 </script>
+<style lang="scss" scoped></style>
