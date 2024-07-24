@@ -1,4 +1,9 @@
 const { defineConfig } = require('@vue/cli-service')
+const path = require('path')
+function resolve(dir) {
+  return path.join(__dirname, dir)
+}
+
 let externals = {}
 let cdn = {
   js: []
@@ -34,5 +39,15 @@ module.exports = defineConfig({
       args[0].cdn = cdn
       return args
     })
+    config.module.rule('svg').exclude.add(resolve('src/icon')).end()
+    config.module
+      .rule('icon')
+      .test(/\.svg$/)
+      .include.add(resolve('src/icon'))
+      .end()
+      .use('svg-sprite-loader')
+      .loader('svg-sprite-loader')
+      .options({ symbolId: 'icon-[name]' })
+      .end()
   }
 })

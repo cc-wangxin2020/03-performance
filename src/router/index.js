@@ -15,6 +15,16 @@ const routes = [
     path: '/img-lazy',
     name: 'imgLazy',
     component: () => import('../views/ImgLazy.vue')
+  },
+  {
+    path: '/xss',
+    name: 'xss',
+    component: () => import('../views/Xss.vue')
+  },
+  {
+    path: '/csrf',
+    name: 'csrf',
+    component: () => import('../views/Csrf.vue')
   }
 ]
 
